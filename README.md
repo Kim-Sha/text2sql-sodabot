@@ -1,4 +1,4 @@
-# Fine-Tuning Language Models for Text2SQL Applications in Open Data
+# Fine-Tuning Language Models for Text2SQL Applications in Open Data (WIP)
 
 **See the full model card for [sql-sodabot-v1.0 on HuggingFace](https://huggingface.co/kim-sha/sql-sodabot-v1.0)**.
 
