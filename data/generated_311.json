@@ -1,0 +1,72 @@
+[
+    {
+        "question": "How many service requests were submitted by phone?",
+        "answer": {
+            "query": "SELECT COUNT(*) WHERE open_data_channel_type = 'PHONE'",
+            "plot": "fig = px.bar(df, x='open_data_channel_type', y='count', title='Service Requests Submitted by Phone')"
+        }
+    },
+    {
+        "question": "What are the top 5 complaint types?",
+        "answer": {
+            "query": "SELECT complaint_type, COUNT(*) as count GROUP BY complaint_type ORDER BY count DESC LIMIT 5",
+            "plot": "fig = px.bar(df, x='complaint_type', y='count', title='Top 5 Complaint Types')"
+        }
+    },
+    {
+        "question": "Show the number of service requests per borough.",
+        "answer": {
+            "query": "SELECT borough, COUNT(*) as count GROUP BY borough",
+            "plot": "fig = px.pie(df, names='borough', values='count', title='Service Requests per Borough')"
+        }
+    },
+    {
+        "question": "What is the average resolution time for service requests?",
+        "answer": {
+            "query": "SELECT AVG(resolution_time) as average_resolution_time",
+            "plot": "fig = px.histogram(df, x='average_resolution_time', title='Average Resolution Time for Service Requests')"
+        }
+    },
+    {
+        "question": "How many service requests were related to noise complaints?",
+        "answer": {
+            "query": "SELECT COUNT(*) WHERE complaint_type = 'Noise - Residential'",
+            "plot": "fig = px.bar(df, x='complaint_type', y='count', title='Noise Complaints Service Requests')"
+        }
+    },
+    {
+        "question": "Display the trend of service requests over the years.",
+        "answer": {
+            "query": "SELECT EXTRACT(YEAR FROM created_date) as year, COUNT(*) as count GROUP BY year",
+            "plot": "fig = px.line(df, x='year', y='count', title='Trend of Service Requests Over the Years')"
+        }
+    },
+    {
+        "question": "Which agency handled the most service requests?",
+        "answer": {
+            "query": "SELECT agency, COUNT(*) as count GROUP BY agency ORDER BY count DESC LIMIT 1",
+            "plot": "fig = px.bar(df, x='agency', y='count', title='Agency Handling Most Service Requests')"
+        }
+    },
+    {
+        "question": "Show the distribution of service request types.",
+        "answer": {
+            "query": "SELECT complaint_type, COUNT(*) as count GROUP BY complaint_type",
+            "plot": "fig = px.histogram(df, x='complaint_type', y='count', title='Distribution of Service Request Types')"
+        }
+    },
+    {
+        "question": "How many service requests were closed within a day?",
+        "answer": {
+            "query": "SELECT COUNT(*) WHERE resolution_time <= 1",
+            "plot": "fig = px.bar(df, x='resolution_time', y='count', title='Service Requests Closed Within a Day')"
+        }
+    },
+    {
+        "question": "What is the most common location type for service requests?",
+        "answer": {
+            "query": "SELECT location_type, COUNT(*) as count GROUP BY location_type ORDER BY count DESC LIMIT 1",
+            "plot": "fig = px.pie(df, names='location_type', values='count', title='Most Common Location Type for Service Requests')"
+        }
+    }
+]

@@ -1,3 +1,6 @@
+# Temp JSON files
+prompt_dataset.json
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
